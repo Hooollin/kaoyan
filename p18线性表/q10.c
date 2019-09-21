@@ -1,10 +1,18 @@
 #include <stdio.h>
+/* 
+    算法设计基本思想；
+        逆序整个顺序表；
+        逆序前size-p个元素；
+        逆序后p个元素；
 
+    时间复杂度:
+        逆序过程时间复杂度为o(n), 一共执行三次，总时间复杂度为o(n)
+*/
 void f(int *arr, int size, int k)
 {
     reverse(arr, 0, size);
-    reverse(arr, 0, k);
-    reverse(arr, k, size);
+    reverse(arr, 0, size - k);
+    reverse(arr, size - k, size);
 }
 
 void reverse(int *arr, int lo, int hi)
