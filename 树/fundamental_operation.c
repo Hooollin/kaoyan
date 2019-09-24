@@ -8,6 +8,13 @@ typedef struct n
     int data;
 } Node, *BinaryTree;
 
+typedef struct node
+{
+    struct node *left;
+    struct node *right;
+    int ltag, rtag;
+} ThreadNode, *ThreadTree;
+
 void preoder(BinaryTree root);
 void levelTravesal(BinaryTree root);
 void inorder(BinaryTree root);
@@ -135,6 +142,41 @@ void inorderNonRecursive(BinaryTree root)
         }
     }
     printf("\n");
+}
+
+/*
+    通过中序遍历创建中序线索树
+*/
+
+void inThread(ThreadTree root, ThreadNode *pre)
+{
+    if (root != NULL)
+    {
+        inThread(root->left, root);
+        if (root->left == NULL)
+        {
+            root->left = pre;
+            root->ltag = 1;
+        }
+        if (pre != NULL && pre->right != NULL)
+        {
+            pre->right = root;
+            pre->rtag = 1;
+        }
+        pre = root;
+        inThread(root->right, pre);
+    }
+}
+
+void creatInthreadTree(ThreadTree root)
+{
+    ThreadNode *pre = NULL;
+    if (root != NULL)
+    {
+        inThread(root, pre);
+        pre->right = NULL;
+        pre->right = 1;
+    }
 }
 
 /* 有关算法题 */
