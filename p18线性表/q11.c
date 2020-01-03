@@ -54,6 +54,12 @@ void swap(int *arr, int i, int j)
     arr[j] = temp;
 }
 
+int ff(int *l1, int *l2, int s)
+{
+    int a, b;
+    int i = 0;
+}
+
 int main()
 {
     int arr1[] = {1, 2, 3, 4, 5};

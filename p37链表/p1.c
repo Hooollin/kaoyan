@@ -1,24 +1,24 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 typedef struct n
 {
     int data;
     struct n *next;
 } Node, *LinkedList;
 
-LinkedList f(LinkedList l, int x)
-{
-    if (l == NULL)
-    {
-        return l;
-    }
-    if (x == l->data)
-    {
-        return f(l->next, x);
-    }
-    l->next = f(l->next, x);
-    return l;
-}
+// LinkedList f(LinkedList l, int x)
+// {
+//     if (l == NULL)
+//     {
+//         return l;
+//     }
+//     if (x == l->data)
+//     {
+//         return f(l->next, x);
+//     }
+//     l->next = f(l->next, x);
+//     return l;
+// }
 
 void createLinkedListWithoutHeadNode(int *arr, int size, LinkedList *l)
 {
@@ -57,12 +57,12 @@ void traversal_h(LinkedList l)
     printf("\n");
 }
 
-int main()
-{
-    int arr[] = {1, 2, 3, 3, 3, 4, 5, 6};
-    LinkedList l;
-    createLinkedListWithoutHeadNode(arr, sizeof(arr) / sizeof(arr[0]), &l); //注意这里的形参
-    traversal(l);
-    l = f(l, 3);
-    traversal(l);
-}
+// int main()
+// {
+//     int arr[] = {1, 2, 3, 3, 3, 4, 5, 6};
+//     LinkedList l;
+//     createLinkedListWithoutHeadNode(arr, sizeof(arr) / sizeof(arr[0]), &l); //注意这里的形参
+//     traversal(l);
+//     l = f(l, 3);
+//     traversal(l);
+// }
